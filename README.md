@@ -18,17 +18,17 @@ activation: relu, gelu, silu, mish
 wandb sweep sweeps/sweep_config.yaml
 wandb agent your_username/sweep_id
 
-Evaluating on Test Set
+# Evaluating on Test Set
 After training, to evaluate the best model:
 python train.py --eval --checkpoint ./outputs/best_model.pth
 
 
-Part B: Fine-Tuning Pretrained Model
+# Part B: Fine-Tuning Pretrained Model
 🔧 Training with Freezing Strategies
 cd ../partB
 python fine_tune.py --strategy freeze_last --epochs 10
 
-Available strategies:
+# Available strategies:
 
 freeze_all: Freeze all pretrained layers
 
@@ -37,13 +37,13 @@ freeze_last: Unfreeze only the last conv block
 unfreeze_all: Unfreeze entire mode
 The script automatically evaluates the model on test data and logs:
 
-Accuracy
+# Accuracy
 
 Confusion matrix
 
 Class-wise precision/recall
 
-Notes
+## Notes
 Dataset is split with 20% stratified validation.
 
 All code uses torchvision.transforms for preprocessing.
